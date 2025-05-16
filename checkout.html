@@ -6,7 +6,6 @@
 <title>Check Out</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="style.css" rel="stylesheet"/>
-
 <script>
   if (sessionStorage.getItem("mostlaneLoggedIn") !== "true") {
     window.location.href = "login.html";
@@ -65,7 +64,6 @@
 <label style="font-size: 18px;"><input name="driver" type="radio" value="yes"/> Yes</label><br/>
 <label style="font-size: 18px;"><input name="driver" type="radio" value="no"/> No</label>
 </div>
-
 <div id="mileageBox" style="display:none; margin-bottom:20px;">
 <label><input id="driverBox" type="checkbox"/> Claim fuel for journey home</label>
 </div>
@@ -85,7 +83,6 @@ fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/employment.txt")
       });
   });
 </script>
-
 <script>
 function beginProcess(status) {
   navigator.geolocation.getCurrentPosition(position => {
@@ -111,7 +108,7 @@ function beginProcess(status) {
       driver: driver
     };
 
-    fetch("https://hooks.zapier.com/hooks/catch/20261714/2nkzvev/", {
+    fetch("https://hooks.zapier.com/hooks/catch/20261714/27zi8ol/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(data).toString()
@@ -164,4 +161,3 @@ fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/employment.txt")
 </script>
 </body>
 </html>
-
