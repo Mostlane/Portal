@@ -59,22 +59,20 @@
 
   </style>
 <h1>Checking Out...</h1>
+
 <div id="fuelPrompt" style="display:none; margin-bottom: 30px; text-align: center;">
 <p style="font-weight: bold; font-size: 18px;">Claim fuel for journey home?</p>
 <div style="display: flex; justify-content: center; gap: 40px;">
 <label style="font-size: 20px;">
 <input name="driver" type="radio" value="yes"/> Yes
-        </label>
+    </label>
 <label style="font-size: 20px;">
 <input name="driver" type="radio" value="no"/> No
-        </label>
+    </label>
 </div>
 </div>
 
 
-<div id="mileageBox" style="display:none; margin-bottom:20px;">
-<label><input id="driverBox" type="checkbox"/> Claim fuel for journey home</label>
-</div>
 <script>
 fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/employment.txt")
   .then(r => r.text())
@@ -91,8 +89,6 @@ fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/employment.txt")
       });
   });
 </script>
-
-
 <script>
 function beginProcess(status) {
   navigator.geolocation.getCurrentPosition(position => {
