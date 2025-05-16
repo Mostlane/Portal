@@ -17,7 +17,7 @@ David.Chandler - No
 John.Chandler - No
 Bradley.Graham - Yes
 Adrian.Furdui - No
-Chris.Freeman - No
+Chris.Freeman - Yes
 Colby.Lunsford - No
 Megan.Line - No
 Chloe.Line - No
