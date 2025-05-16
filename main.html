@@ -58,7 +58,7 @@
 <a class="button" href="#" id="hrButton">HR Documents</a>
 <a class="button" href="purchase.html">Generate Purchase Order Reference</a>
 <a class="button" href="weekly.html">Weekly Summary</a>
-<a class="button" href="#" onclick="sessionStorage.removeItem('mostlaneLoggedIn'); window.location.href='login.html';">Logout</a>
+<a class="button" href="login.html" onclick="sessionStorage.removeItem('mostlaneLoggedIn');">Logout</a>
 <script>
   const folder = sessionStorage.getItem("mostlaneFolder");
   const hrButton = document.getElementById("hrButton");
@@ -72,7 +72,6 @@
     });
   }
 </script>
-
 <script>
 fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/role-type.txt")
   .then(r => r.text())
@@ -84,7 +83,7 @@ fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/role-type.txt")
 
     document.querySelectorAll("a.button").forEach(btn => {
       const href = btn.getAttribute("href");
-      if (!isOffice && !["index.html", "holiday.html", "weekly.html", "purchase.html"].includes(href)) {
+      if (!isOffice && !["index.html", "holiday.html", "weekly.html", "purchase.html", "login.html"].includes(href)) {
         btn.style.display = "none";
       }
     });
