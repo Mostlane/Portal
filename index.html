@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mostlane Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+<script>
+  if (sessionStorage.getItem("mostlaneLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+</head>
+<body class="index-body">
+  <style>
+  body.index-body {
+    font-family: "Segoe UI", sans-serif;
+    background: #e6e8eb url('Mostlane_Embossed.png') no-repeat center center fixed;
+    background-size: 180%;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .button {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(0, 74, 153, 0.6);
+    text-decoration: none;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  h1 {
+    background-color: rgba(0, 74, 153, 0.6);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 30px;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  </style>
+  <h1>Mostlane Portal</h1>
+  <a class="button" href="checkin.html">Check In</a>
+  <a class="button" href="checkout.html">Check Out</a>
+  <a class="button" href="main.html">Main Menu</a>
+</body>
+</html>

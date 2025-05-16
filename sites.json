@@ -1,0 +1,50 @@
+[
+  {
+    "jobNumber": "0123",
+    "siteName": "5 Woodlands Close",
+    "latitude": 50.874399,
+    "longitude": -1.281986,
+    "mileageFromHQ": 2.7,
+    "radiusMeters": 500
+  },
+  {
+    "jobNumber": "0002",
+    "siteName": "Brockhurst Road",
+    "latitude": 50.808241,
+    "longitude": -1.153669,
+    "mileageFromHQ": 6.1,
+    "radiusMeters": 500
+  },
+  {
+    "jobNumber": "0001",
+    "siteName": "Hartley Wintney",
+    "latitude": 51.298408,
+    "longitude": -0.913927,
+    "mileageFromHQ": 46.5,
+    "radiusMeters": 500
+  },
+  {
+    "jobNumber": "0003",
+    "siteName": "Starbucks Gatwick",
+    "latitude": 51.133573,
+    "longitude": -0.167835,
+    "mileageFromHQ": 67.7,
+    "radiusMeters": 500
+  },
+  {
+    "jobNumber": "0004",
+    "siteName": "The Old Vicarage",
+    "latitude": 51.098356,
+    "longitude": -0.943547,
+    "mileageFromHQ": 33.5,
+    "radiusMeters": 500
+  },
+  {
+    "jobNumber": "0005",
+    "siteName": "The Oaks Crematorium ",
+    "latitude": 50.869469,
+    "longitude": -0.95682,
+    "mileageFromHQ": 17.5,
+    "radiusMeters": 500
+  }
+]
