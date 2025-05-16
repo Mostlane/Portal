@@ -1,27 +1,26 @@
 
 <!DOCTYPE html>
+
 <html>
 <head>
-  <title>Main Menu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+<title>Main Menu</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="style.css" rel="stylesheet"/>
 <script>
   if (sessionStorage.getItem("mostlaneLoggedIn") !== "true") {
     window.location.href = "login.html";
   }
 </script>
-
 </head>
 <body class="main-body">
-  <div id="user-display" style="margin-bottom: 20px; font-size: 16px; font-weight: bold; color: #003366;"></div>
-  <script>
+<div id="user-display" style="margin-bottom: 20px; font-size: 16px; font-weight: bold; color: #003366;"></div>
+<script>
     const user = sessionStorage.getItem("mostlaneUser");
     if (user) {
       document.getElementById("user-display").textContent = "You are logged in as " + user;
     }
   </script>
-
-  <style>
+<style>
     .main-body {
       font-family: "Segoe UI", sans-serif;
       background: #e6e8eb url('Mostlane_Embossed.png') no-repeat center center fixed;
@@ -52,17 +51,14 @@
       max-width: 300px;
     }
   </style>
-  
-  <a class="button" href="index.html">Check In / Out</a>
-  <a class="button" href="timesheet.html">My Timesheet</a>
-  <a class="button" href="fuel.html">Fuel & Expenses</a>
-  <a class="button" href="holiday.html">Holiday Requests</a>
-  <a class="button" id="hrButton" href="#">HR Documents</a>
-  <a class="button" href="purchase.html">Generate Purchase Order Reference</a>
-  <a class="button" href="weekly.html">Weekly Summary</a>
-
+<a class="button" href="index.html">Check In / Out</a>
+<a class="button" href="timesheet.html">My Timesheet</a>
+<a class="button" href="fuel.html">Fuel &amp; Expenses</a>
+<a class="button" href="holiday.html">Holiday Requests</a>
+<a class="button" href="#" id="hrButton">HR Documents</a>
+<a class="button" href="purchase.html">Generate Purchase Order Reference</a>
+<a class="button" href="weekly.html">Weekly Summary</a>
 <a class="button" href="#" onclick="sessionStorage.removeItem('mostlaneLoggedIn'); window.location.href='login.html';">Logout</a>
-
 <script>
   const folder = sessionStorage.getItem("mostlaneFolder");
   const hrButton = document.getElementById("hrButton");
@@ -78,22 +74,28 @@
 </script>
 
 <script>
-  fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/role-type.txt")
-    .then(r => r.text())
-    .then(text => {
-      const lines = text.split("\n");
-      const user = sessionStorage.getItem("mostlaneUser");
-      const match = lines.find(line => line.includes(user));
-      const isOffice = match && match.includes("Office");
-      if (isOffice) {
-        const btn = document.createElement("a");
-        btn.className = "button";
-        btn.href = "add-site.html";
-        btn.textContent = "Add Site";
-        document.querySelector("a[href='weekly.html']").insertAdjacentElement("afterend", btn);
+fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/role-type.txt")
+  .then(r => r.text())
+  .then(text => {
+    const lines = text.split("\n");
+    const user = sessionStorage.getItem("mostlaneUser");
+    const match = lines.find(line => line.includes(user));
+    const isOffice = match && match.includes("Office");
+
+    document.querySelectorAll("a.button").forEach(btn => {
+      const href = btn.getAttribute("href");
+      if (!isOffice && !["index.html", "holiday.html", "weekly.html", "purchase.html"].includes(href)) {
+        btn.style.display = "none";
       }
     });
-</script>
 
-</body>
+    if (isOffice) {
+      const btn = document.createElement("a");
+      btn.className = "button";
+      btn.href = "add-site.html";
+      btn.textContent = "Add Site";
+      document.querySelector("a[href='weekly.html']").insertAdjacentElement("afterend", btn);
+    }
+  });
+</script></body>
 </html>
