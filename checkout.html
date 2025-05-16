@@ -59,11 +59,19 @@
 
   </style>
 <h1>Checking Out...</h1>
-<div id="fuelPrompt" style="display:none; margin-bottom: 30px; text-align: left; font-size: 18px;">
-<p style="font-weight: bold;">Claim fuel for journey home?</p>
-<label style="font-size: 18px;"><input name="driver" type="radio" value="yes"/> Yes</label><br/>
-<label style="font-size: 18px;"><input name="driver" type="radio" value="no"/> No</label>
+<div id="fuelPrompt" style="display:none; margin-bottom: 30px; text-align: center;">
+<p style="font-weight: bold; font-size: 18px;">Claim fuel for journey home?</p>
+<div style="display: flex; justify-content: center; gap: 40px;">
+<label style="font-size: 20px;">
+<input name="driver" type="radio" value="yes"/> Yes
+        </label>
+<label style="font-size: 20px;">
+<input name="driver" type="radio" value="no"/> No
+        </label>
 </div>
+</div>
+
+
 <div id="mileageBox" style="display:none; margin-bottom:20px;">
 <label><input id="driverBox" type="checkbox"/> Claim fuel for journey home</label>
 </div>
@@ -83,6 +91,8 @@ fetch("https://raw.githubusercontent.com/Mostlane/Portal/main/employment.txt")
       });
   });
 </script>
+
+
 <script>
 function beginProcess(status) {
   navigator.geolocation.getCurrentPosition(position => {
@@ -113,23 +123,6 @@ function beginProcess(status) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(data).toString()
     }).then(() => {
-      setTimeout(() => {
-        try {
-          fetch("https://1d24d222-2e9f-4bd9-b4e3-650d8bcf24cf-00-ugqjxf7cv4sj.worf.replit.dev/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              user: data.engineer,
-              type: status.toLowerCase().replace(' ', ''),
-              datetime: new Date().toISOString(),
-              location: "GPS: " + data.lat + "," + data.lon
-            })
-          });
-        } catch (e) {
-          console.warn("GitHub log error:", e);
-        }
-      }, 500);
-
       const now = new Date().toLocaleString();
       window.location.href = `confirm.html?status=${status}&lat=${data.lat}&lon=${data.lon}&time=${encodeURIComponent(now)}`;
     }).catch(() => alert("Error submitting data."));
