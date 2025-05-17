@@ -157,22 +157,7 @@ function createInvoice() {
 
   const dailyLogs = Array.from(document.querySelectorAll(".activity")).map(div => div.innerText.trim());
 
-  
-  const screenCapture = document.querySelector('.content-box').outerHTML;
   const payload = {
-    engineer: name,
-    username: username,
-    week_range: weekRange,
-    standard_hours: stdHours,
-    overtime_hours: otHours,
-    hourly_rate: stdRate,
-    overtime_rate: otRate,
-    std_pay: stdPay,
-    ot_pay: otPay,
-    total_earnings: totalEarnings,
-    mileage_summary: paidMileageText,
-    screen_snapshot: screenCapture,
-
     engineer: name,
     username: username,
     week_range: weekRange,
