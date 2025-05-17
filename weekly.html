@@ -109,7 +109,8 @@ function createInvoice() {
   const paidMileageText = document.getElementById("mileageTotalDisplay")?.textContent || "";
   const weekRange = document.getElementById("weekRange")?.textContent || "";
 
-  const payload = {
+  const screenSnapshot = document.querySelector('.content-box')?.outerHTML || "";
+  const payload = { screen_snapshot: screenSnapshot,
     engineer: name,
     username: username,
     week_range: weekRange,
@@ -153,7 +154,8 @@ const week = document.getElementById("weekRange")?.textContent || "Unknown";
   const mileage = document.getElementById("total-mileage")?.textContent || "";
   const mileagePay = document.getElementById("total-mileage-pay")?.textContent || "";
 
-  const payload = {
+  const screenSnapshot = document.querySelector('.content-box')?.outerHTML || "";
+  const payload = { screen_snapshot: screenSnapshot,
     user,
     week,
     stdHours,
