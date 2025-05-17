@@ -85,6 +85,7 @@
 </div>
 <div id="activityLog"></div>
 </div>
+
 <div class="content-box">
 <hr style="margin-top: 30px;"/>
 <p><strong>Total standard rate hours:</strong> <span id="std-hours"></span> at <span id="std-rate"></span> (<span id="std-pay"></span>)</p>
@@ -188,45 +189,5 @@ function createInvoice() {
     console.error(error);
   });
 }
-</script>
-<script>
-async function fetchDeviceList() {
-  const res = await fetch("https://mostlane.github.io/Portal/logs/device-ids.txt");
-  const text = await res.text();
-  const lines = text.split("\n");
-  const expectedDevices = {};
-  lines.forEach(line => {
-    const [user, device] = line.split(" - ");
-    if (user && device) {
-      expectedDevices[user.trim()] = device.trim();
-    }
-  });
-
-  document.querySelectorAll(".activity").forEach(div => {
-    const content = div.innerText;
-    const match = content.match(/Engineer:\s*(.+)/i);
-    const deviceMatch = content.match(/Device:\s*(dev-[a-z0-9]+)/i);
-    if (match && deviceMatch) {
-      const user = match[1].trim();
-      const device = deviceMatch[1].trim();
-      const expected = expectedDevices[user];
-      const verifiedIcon = document.createElement("span");
-      verifiedIcon.style.float = "right";
-      verifiedIcon.style.fontWeight = "bold";
-      verifiedIcon.style.fontSize = "16px";
-      verifiedIcon.style.marginLeft = "10px";
-      if (expected === device) {
-        verifiedIcon.style.color = "green";
-        verifiedIcon.textContent = "✔ Verified";
-      } else {
-        verifiedIcon.style.color = "red";
-        verifiedIcon.textContent = "✖ Unverified";
-      }
-      div.prepend(verifiedIcon);
-    }
-  });
-}
-window.addEventListener("load", fetchDeviceList);
-</script>
-</body>
+</script></body>
 </html>
